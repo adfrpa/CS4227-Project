@@ -3,21 +3,26 @@ import java.util.List;
 
 public class Customer {
 
+    // instance variables
     private String name;
     private List<Rental> rentals = new ArrayList<Rental>();
 
+    // constructor
     public Customer(String name) {
         this.name = name;
     }
 
+    // getter method for name
     public String getName() {
         return name;
     }
 
+    // method to add a Rental to the list of rentals
     public void addRental(Rental rental) {
         rentals.add(rental);
     }
 
+    // method to generate a text statement of the customer's rentals and charges
     public String statement() {
         String result = "Rental record for " + getName() + "\n";
         for (Rental rental : rentals)
@@ -27,6 +32,7 @@ public class Customer {
         return result;
     }
 
+    // method to generate an HTML statement of the customer's rentals and charges
     public String htmlStatement() {
         String result = "<h1>Rental record for <b>" + getName() + "</b></h1>\n";
         for (Rental rental : rentals)
@@ -37,6 +43,7 @@ public class Customer {
 
     }
 
+    // private helper method to calculate the total charge for all rentals
     private double getTotalCharge() {
         double total = 0;
         for (Rental rental : rentals)
@@ -44,6 +51,7 @@ public class Customer {
         return total;
     }
 
+    // private helper method to calculate the total frequent renter points for all rentals
     private int getTotalFrequentRenterPoints() {
         int total = 0;
         for (Rental rental : rentals)
